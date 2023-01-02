@@ -60,7 +60,10 @@
   <script>
 
     function click_button(){
-        if(!alert('Your request was submitted and will be taken case of')){window.location.reload();}
+        setTimeout(() => {
+         if(!alert('Your request was submitted and will be taken case of')){window.location.reload();} 
+        },5000);
+        
     }
 
 </script>
