@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ross Service Request Form</title>
+
+<style>
+
+
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;  /* Whatever width you want */
+
+  text-align: center;
+}
+.call-content {
+    width: 300px;
+    height: 200px;
+}
+
+.submit {
+    margin-top: 30px;
+}
+    </style>
+
+
+
+</head>
+<body>
+
+
+<div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <h1>Fill your Requect</h1> </br>
+        <textarea class="call-content" id=""></textarea>
+        <p>You can add a file for more information about your request.</p> </br>
+        <input type="file"></input></br>
+        <button class="submit" onclick="click_button()">Submit</button>
+    </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    function click_button(){
+        if(!alert('Your request was submitted and will be taken case of')){window.location.reload();}
+    }
+
+</script>
+
+
+</body>
+</html>
