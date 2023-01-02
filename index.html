@@ -36,6 +36,36 @@
 .submit {
     margin-top: 30px;
 }
+
+.grey_out{
+
+    position:fixed;
+            z-index: 2; /* above everything else */
+            top:0; left:0; bottom:0; right:0;
+            background:rgba(0,0,0,.5);
+
+}
+
+.notvisble {
+    visibility: hidden;
+    display: none;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
     </style>
 
 
@@ -47,6 +77,8 @@
 <div class="outer">
     <div class="middle">
       <div class="inner">
+        <div id="loader"></div>
+        <div id="container">
         <h1>Fill your Requect</h1> </br>
         <textarea class="call-content" id=""></textarea>
         <p>You can add a file for more information about your request.</p> </br>
@@ -54,16 +86,35 @@
         <button class="submit" onclick="click_button()">Submit</button>
     </div>
     </div>
+    </div>
   </div>
 
-
+  <div class="notvisble" id="greyout"> <!-- possibly some loading-animation and/or explanation --> </div>
   <script>
 
     function click_button(){
+        document.getElementById("container").classList.add("notvisble");
+
+
+        document.getElementById("loader").classList.remove("notvisble");
+        document.getElementById("loader").classList.add("loader");
+
+
+
+        document.getElementById("greyout").classList.remove('notvisble');
+        document.getElementById("greyout").classList.add('grey_out');
+
+
         setTimeout(() => {
-         if(!alert('Your request was submitted and will be taken case of')){window.location.reload();} 
-        },2500);
+            document.getElementById("loader").classList.remove("loader");
+        document.getElementById("loader").classList.add("nonvisble");
         
+        setTimeout(() => {
+
+        
+         if(!alert('Your request was submitted and will be taken case of')){window.location.reload();} 
+        },10);
+        },1000);
     }
 
 </script>
